@@ -2,11 +2,12 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import TweetList from './TweetList'
 
 const App = () => (
   <div>
     <Header />
-    <a class="button is-primary" href="https://himanoa.net">OK</a>
+    <TweetList />
     <Footer />
   </div>
 )
