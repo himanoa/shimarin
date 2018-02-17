@@ -71,5 +71,10 @@ module.exports = [
     plugins: [
       new ExtractTextPlugin('[name].css'),
     ],
+    resolve: {
+      alias: {
+        "$": path.join(__dirname, 'node_modules/')
+      }
+    }
   },
 ]
