@@ -1,0 +1,9 @@
+{
+  "name": "simarin",
+  "version": "0.0.1",
+  "description": "website",
+  "main": "index.js",
+  "author": "himanoa <matsunoappy@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
