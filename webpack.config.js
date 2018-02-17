@@ -13,7 +13,7 @@ module.exports = {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     path: __dirname + '/public',
-    publicPath: __dirname + '/public'
+    publicPath: '/'
   },
   devServer: {
     contentBase: 'public/',
