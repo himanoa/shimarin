@@ -45,7 +45,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['public']),
     new HtmlWebpackPlugin({
-       title: 'Production'
-     })
+      hash: true,
+      template: './src/index.template.ejs',
+      inject: 'body',
+    })
   ]
 }
