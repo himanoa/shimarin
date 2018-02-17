@@ -2,6 +2,7 @@ const functions = require('firebase-functions') ;
 const Twitter = require('twitter');
 
 exports.shimarin= functions.https.onRequest((request, response) => {
+  console.dir(functions.config())
   const searchEndPoint = '/search/tweets'
   const errorHandler = (error) => {
     response.json({
