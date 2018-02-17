@@ -2,6 +2,7 @@ const functions = require('firebase-functions') ;
 const Twitter = require('twitter');
 
 exports.shimarin= functions.https.onRequest((request, response) => {
+  const searchEndPoint = '/search/tweets'
   const errorHandler = (error) => {
     response.json({
       status: 500,
@@ -21,7 +22,13 @@ exports.shimarin= functions.https.onRequest((request, response) => {
     }
     const tw = new Twitter(auth)
 
-    tw.post('statuses/update', { status: 'ｺﾄﾉﾊｼﾏｲｶﾜｲｲﾔｯﾀ-' }, (error) =>  {
+    const searchParams = {
+      q: 'しまりん OR 志摩リン OR しまリン',
+      locale: 'ja',
+      popular: 'recent',
+      count: 100
+    }
+    tw.get(searchEndPoint, searchParams, (error, tweets) =>  {
       if(error) {
         errorHandler(error)
         return
@@ -29,6 +36,7 @@ exports.shimarin= functions.https.onRequest((request, response) => {
       response.json({
         status: 200,
         payload: {
+          tweets: tweets.statuses
         },
         error: false
       });
