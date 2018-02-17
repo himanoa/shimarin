@@ -34,10 +34,6 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
-    port: DEV_PORT,
-  },
   devtool: process.env.NODE_ENV === 'production' ? null : 'inline-source-map',
   plugins:[
     new webpack.DefinePlugin({
