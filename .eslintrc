@@ -1,6 +1,8 @@
 {
     "extends": "eslint:recommended",
-    "sourceType": "module",
+    "parserOptions": {
+      "sourceType": "module",
+    },
     "env": {
         "browser": true,
         "es6": true
