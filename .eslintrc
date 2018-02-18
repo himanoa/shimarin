@@ -40,6 +40,7 @@
         "rest-spread-spacing": "error",
         "template-curly-spacing": "error",
         "prettier/prettier": "error",
-        "react/jsx-users-vars": "error"
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "error"
     }
 }
