@@ -1,4 +1,5 @@
 /* @flow */
+import 'babel-polyfill'
 import React from "react";
 import { render } from "react-dom";
 import store from "./stores";
@@ -16,3 +17,4 @@ render(
   </Provider>,
   rootElement
 );
+store.dispatch({type: 'tweet/poll_start'});

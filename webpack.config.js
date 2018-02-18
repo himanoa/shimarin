@@ -18,6 +18,9 @@ module.exports = [
       path: __dirname + '/public',
       publicPath: '/'
     },
+    watchOptions: {
+      poll: true
+    },
     devServer: {
       contentBase: 'public/',
       historyApiFallback: true,
