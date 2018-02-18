@@ -5,22 +5,21 @@ const admin = require('firebase-admin');
 // Initialize the app with a service account, granting admin privileges
 admin.initializeApp({
   credential: admin.credential.cert(adminKey),
-  databaseURL:functions.config().firebase.databaseURL
+  databaseURL: 'https://shimar-in.firebaseio.com/'
 });
-
 // As an admin, the app has access to read and write all data, regardless of Security Rules
-//
-//
-const db = admin.database();
 
 const expireTime = 900000 // 15分
 
 const isCacheAlive = (cache) => new Promise((resolve, reject) => {
   try{
-    if(cache && (new Date().getTime() - cache.lastUpdate) <= expireTime) {
-      resolve()
+    const diff = new Date().getTime() - cache.lastUpdate
+    if(cache && diff <= expireTime) {
+      console.log(diff)
+      console.log('cached')
+      resolve(cache)
     }
-    resolve(cache)
+    resolve()
   }catch(e){
     reject(e)
   }
@@ -69,7 +68,7 @@ const fetchShimarinForTwitter = () => new Promise((resolve, reject) => {
   }
 })
 
-const writeCache = (tweets) => new Promise((resolve, reject) => {
+const writeCache = (db) => (tweets) => new Promise((resolve, reject) => {
   try{
     db.ref("/cache").set({tweets, lastUpdate: new Date().getTime()})
     resolve(tweets)
@@ -89,10 +88,12 @@ const errorHandler = (error) => {
 }
 
 exports.shimarin= functions.https.onRequest((request, response) => {
-  response.contentType('application/json');
-  db.ref('/cache').once('value', (snapshot) => new Promise((resolve) => {
-    resolve(snapshot)
-  }))
+  const db = admin.database();
+  db.ref('cache').once('value')
+    .then(snapshot => new Promise((resolve) => {
+      const value = snapshot.val()
+      resolve({tweets: value.tweets, lastUpdate: value.lastUpdate})
+    }))
     .then(isCacheAlive)
     .then(responseCache(response))
     .then(fetchShimarinForTwitter)
@@ -105,10 +106,11 @@ exports.shimarin= functions.https.onRequest((request, response) => {
           },
           error: false
         });
+        resolve(tweets)
       }catch(e){
         reject(e)
       }
     }))
-    .then(writeCache)
+    .then(writeCache(db))
     .catch(errorHandler)
 });
