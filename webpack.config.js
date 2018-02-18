@@ -36,7 +36,7 @@ module.exports = [
     plugins:[
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production'),
-        API_HOST: (process.env.NODE_ENV === 'production' ? process.env.PROD_APIHOST : process.env.DEV_APIHOST)
+        API_HOST: process.env.PROD_APIHOST
       }),
       new FlowWebpackPlugin(),
       new webpack.optimize.UglifyJsPlugin({
