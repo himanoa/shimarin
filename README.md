@@ -1,8 +1,10 @@
 # Shimarin
 
-## SystemDependencies
+http://s1mar.in 買っちった
 
-- firebase-cli
+## System Dependencies
+
+- gcloud
 - yarn
 - direnv allow
 - Nodejs
@@ -19,6 +21,12 @@
 1. Run `yarn run build`
 2. Run `firebase use --add`
 3. Run `firebase deploy`
+4. Run
+
+```
+cd functions
+gcloud beta functions deploy shimarin --trigger-http --stage-bucket=shimarin_tmp --source=.
+```
 
 ## Stack
 
@@ -27,9 +35,11 @@
 - flow
 - eslint
 - firebase
+- GCP CloudFunctions
 - react-redux
 - babel
 - bulma
+- prettier
 
 ## Lisence
 
