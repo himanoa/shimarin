@@ -94,6 +94,8 @@ const errorHandler = response => error => {
 };
 
 exports.shimarin = functions.https.onRequest((request, response) => {
+  response.set("Access-Control-Allow-Origin", "*");
+  response.set("Access-Control-Allow-Methods", "GET");
   const db = admin.database();
   db
     .ref("cache")
