@@ -60,6 +60,12 @@ const fetchShimarinForTwitter = () => new Promise((resolve, reject) => {
       include_entities: true
     }
     const tw = new Twitter(auth);
+    const searchParams = {
+      q: 'しまりん OR 志摩リン OR しまリン',
+      locale: 'ja',
+      popular: 'recent',
+      count: 100
+    }
     tw.get(searchEndPoint, searchParams, (error, tweets) =>  {
       if(error) { throw error }
       tweets = tweets.statuses
