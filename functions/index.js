@@ -2,12 +2,12 @@ const functions = require('firebase-functions') ;
 const Twitter = require('twitter');
 const adminKey = require('./key.json');
 const admin = require('firebase-admin');
+
 // Initialize the app with a service account, granting admin privileges
 admin.initializeApp({
   credential: admin.credential.cert(adminKey),
   databaseURL: 'https://shimar-in.firebaseio.com/'
 });
-// As an admin, the app has access to read and write all data, regardless of Security Rules
 
 const expireTime = 900000 // 15分
 
