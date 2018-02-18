@@ -1,6 +1,8 @@
 // @flow
 export const SYNC_TWEET = "tweet/sync_tweet";
 export const POLL_START = "tweet/poll_start";
+export const TWEETS_FETCH_SUCCESS = "tweet/fetch_success";
+export const TWEETS_FETCH_FAILED = "tweet/fetch_fail";
 
 export type Tweet = {|
   created_at: string,
