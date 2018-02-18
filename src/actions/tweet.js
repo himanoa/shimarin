@@ -16,7 +16,7 @@ type Tweet = {|
       type: string,
       url: string
     |}>,
-    user_mentions: Array<{|
+    user_mentions: ?Array<{|
       id_str: string,
       indices: Array<number>,
       name: string,
@@ -56,7 +56,7 @@ type Tweet = {|
       source_user_id_str: string,
       type: string,
       url: string,
-      video_info: {|
+      video_info: ?{|
         aspect_ratio: Array<number>,
         variants: Array<{|
           bitrate: number,
@@ -78,14 +78,14 @@ type Tweet = {|
   possibly_sensitive: boolean,
   retweet_count: number,
   retweeted: boolean,
-  retweeted_status: {|
+  retweeted_status: ?{|
     created_at: string,
     entities: {|
-      hashtags: Array<{|
+      hashtags: ?Array<{|
         indices: Array<number>,
         text: string
       |}>,
-      media: Array<{|
+      media: ?Array<{|
         display_url: string,
         expanded_url: string,
         id_str: string,
@@ -118,7 +118,7 @@ type Tweet = {|
         url: string
       |}>
     |},
-    extended_entities: {|
+    extended_entities: ?{|
       media: Array<{|
         display_url: string,
         expanded_url: string,
