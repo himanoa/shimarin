@@ -59,6 +59,7 @@ const fetchShimarinForTwitter = () => new Promise((resolve, reject) => {
       count: 100,
       include_entities: true
     }
+    const tw = new Twitter(auth);
     tw.get(searchEndPoint, searchParams, (error, tweets) =>  {
       if(error) { throw error }
       tweets = tweets.statuses
