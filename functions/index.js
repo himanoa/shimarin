@@ -2,7 +2,7 @@ const functions = require('firebase-functions') ;
 const Twitter = require('twitter');
 const adminKey = require('./key.json');
 const admin = require('firebase-admin');
-require('dotenv').config();
+const auth = require('./auth.js');
 
 // Initialize the app with a service account, granting admin privileges
 admin.initializeApp({
@@ -49,12 +49,6 @@ const responseCache = (response) => (cache) => new Promise((resolve, reject) => 
 const fetchShimarinForTwitter = () => new Promise((resolve, reject) => {
   try{
     const searchEndPoint = '/search/tweets'
-    const auth = {
-      consumer_key: process.env.consumerKey,
-      consumer_secret: process.env.consumerSecret,
-      access_token_key: process.env.accessToken,
-      access_token_secret: process.env.accessTokenSecret,
-    }
     console.error(auth)
     const tw = new Twitter(auth);
     const searchParams = {

@@ -1,3 +1,3 @@
 .envrc
 firebase-debug.log
-.env
+auth.js
