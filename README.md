@@ -41,6 +41,6 @@ gcloud beta functions deploy shimarin --trigger-http --stage-bucket=shimarin_tmp
 - bulma
 - prettier
 
-## Lisence
+## License
 
 MIT
