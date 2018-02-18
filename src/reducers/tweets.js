@@ -1,5 +1,5 @@
 // @flow
-import { SYNC_TWEET } from "../actions";
+import { SYNC_TWEET } from "../actions/tweet";
 import type { Tweet, Action } from "../actions/tweet";
 
 const tweets = (state: Array<Tweet> = [], action: Action) => {
