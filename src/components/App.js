@@ -1,8 +1,8 @@
 /* @flow */
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import TweetList from './TweetList'
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import TweetList from "./TweetList";
 
 const App = () => (
   <div>
@@ -10,6 +10,6 @@ const App = () => (
     <TweetList />
     <Footer />
   </div>
-)
+);
 
-export default App
+export default App;

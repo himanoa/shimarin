@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react'
+import React from "react";
 
 const Header = () => (
   <div class="hero is-link">
@@ -10,6 +10,6 @@ const Header = () => (
       </div>
     </div>
   </div>
-)
+);
 
-export default Header
+export default Header;

@@ -1,12 +1,11 @@
 // @flow
 
-import React from 'react'
+import React from "react";
 
 const Footer = () => (
   <div class="footer is-link">
-    <div class="container">
-    </div>
+    <div class="container" />
   </div>
-)
+);
 
-export default Footer
+export default Footer;

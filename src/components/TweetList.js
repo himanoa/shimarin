@@ -1,10 +1,8 @@
 // @flow
 
-import React from 'react'
-import Tweet from './Tweet'
+import React from "react";
+import Tweet from "./Tweet";
 
-const TweetList = () => (
-  <div></div>
-)
+const TweetList = () => <div />;
 
-export default TweetList
+export default TweetList;
