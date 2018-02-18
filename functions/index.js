@@ -27,16 +27,19 @@ const isCacheAlive = (cache) => new Promise((resolve, reject) => {
 
 const responseCache = (response) => (cache) => new Promise((resolve, reject) => {
   try {
+    console.log('poepoe')
+    console.log(cache)
     if(!cache) {
-      resolve()
+      resolve(cache)
+    }else {
+      response.json({
+        status: 200,
+        payload: {
+          tweets: cache.tweets
+        },
+        error: false
+      });
     }
-    response.json({
-      status: 200,
-      payload: {
-        tweets: cache.tweets
-      },
-      error: false
-    });
   }catch(e){
     reject(e)
   }
@@ -78,7 +81,7 @@ const writeCache = (db) => (tweets) => new Promise((resolve, reject) => {
   }
 })
 
-const errorHandler = (error) => {
+const errorHandler = (response) => (error) => {
   response.json({
     status: 500,
     payload: {
@@ -93,6 +96,7 @@ exports.shimarin= functions.https.onRequest((request, response) => {
   db.ref('cache').once('value')
     .then(snapshot => new Promise((resolve) => {
       const value = snapshot.val()
+      if(!value) { resolve({}) }
       resolve({tweets: value.tweets, lastUpdate: value.lastUpdate})
     }))
     .then(isCacheAlive)
@@ -113,5 +117,5 @@ exports.shimarin= functions.https.onRequest((request, response) => {
       }
     }))
     .then(writeCache(db))
-    .catch(errorHandler)
+    .catch(errorHandler(response))
 });
