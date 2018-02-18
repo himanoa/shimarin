@@ -35,7 +35,8 @@ module.exports = [
     devtool: process.env.NODE_ENV === 'production' ? null : 'inline-source-map',
     plugins:[
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
+        'process.env.NODE_ENV': JSON.stringify('production'),
+        API_HOST: (process.env.NODE_ENV === 'production' ? process.env.PROD_APIHOST : process.env.DEV_APIHOST)
       }),
       new FlowWebpackPlugin(),
       new webpack.optimize.UglifyJsPlugin({

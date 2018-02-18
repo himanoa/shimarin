@@ -3,3 +3,4 @@ flow-typed
 public/*
 functions/node_modules
 functions/key.json
+.envrc
