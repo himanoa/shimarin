@@ -2,12 +2,12 @@
 
 import React from "react";
 
-type Props = {
+export type TweetProps = {
   text: string,
   link: string
 };
 
-const Tweet = ({ text, link }: Props) => (
+const Tweet = ({ text, link }: TweetProps) => (
   <li>
     <a href={link}>{text}</a>
   </li>
