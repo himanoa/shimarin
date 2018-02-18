@@ -1,3 +1,3 @@
 .envrc
 firebase-debug.log
-auth.json
+twitterToken.json
