@@ -93,6 +93,7 @@ exports.shimarin= functions.https.onRequest((request, response) => {
     .then(snapshot => new Promise((resolve) => {
       const value = snapshot.val()
       if(!value) { resolve({}) }
+      console.log('cache hit')
       resolve({tweets: value.tweets, lastUpdate: value.lastUpdate})
     }))
     .then(isCacheAlive)
