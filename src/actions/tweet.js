@@ -1,7 +1,7 @@
 // @flow
 export const SYNC_TWEET = 'tweet/sync_tweet'
 
-type Tweet = {|
+export type Tweet = {|
   created_at: string,
   entities: {|
     media: Array<{|
