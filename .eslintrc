@@ -1,6 +1,7 @@
 {
     "extends": "eslint:recommended",
     "parserOptions": {
+      "parser": "babel-eslint",
       "sourceType": "module",
       "ecmaFeatures": {
           "experimentalObjectRestSpread": true,
@@ -12,7 +13,8 @@
         "es6": true,
     },
     "plugins": [
-        "react"
+        "react",
+        "flowtype"
     ],
     "rules": {
         "arrow-body-style": "error",

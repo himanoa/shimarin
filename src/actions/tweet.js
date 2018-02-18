@@ -1,7 +1,10 @@
 // @flow
-export const SYNC_TWEET = 'tweet/sync-tweet'
+export const SYNC_TWEET = 'tweet/sync_tweet'
 
-export const syncTweet = (tweets:string) => (
+type Tweet = {
+
+}
+export const syncTweet = (tweets:Array<Tweet>) => (
   {
     type: SYNC_TWEET,
     payload: {
