@@ -2,7 +2,7 @@ const functions = require('firebase-functions') ;
 const Twitter = require('twitter');
 const adminKey = require('./key.json');
 const admin = require('firebase-admin');
-const auth = require('./auth.js');
+const auth = require('./auth.json');
 
 // Initialize the app with a service account, granting admin privileges
 admin.initializeApp({
