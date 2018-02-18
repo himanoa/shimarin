@@ -54,17 +54,14 @@ const fetchShimarinForTwitter = () => new Promise((resolve, reject) => {
       consumer_secret: process.env.consumerSecret,
       access_token_key: process.env.accessToken,
       access_token_secret: process.env.accessTokenSecret,
-      locale: 'ja',
-      popular: 'recent',
-      count: 100,
-      include_entities: true
     }
     const tw = new Twitter(auth);
     const searchParams = {
       q: 'しまりん OR 志摩リン OR しまリン',
       locale: 'ja',
       popular: 'recent',
-      count: 100
+      count: 100,
+      include_entities: true
     }
     tw.get(searchEndPoint, searchParams, (error, tweets) =>  {
       if(error) { throw error }
