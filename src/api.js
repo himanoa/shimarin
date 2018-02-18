@@ -12,4 +12,3 @@ export const fetchShimarin = async (): Promise<Array<Tweet>> => {
   const tweets: Array<Tweet> = response.data.payload.tweets;
   return tweets;
 };
-
