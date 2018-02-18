@@ -280,6 +280,13 @@ export type Tweet = {|
   |}
 |};
 
+export type Action = {|
+  type: string,
+  payload: {|
+    tweets: ?Array<Tweet>
+  |}
+|};
+
 export const syncTweet = (tweets: Array<Tweet>) => ({
   type: SYNC_TWEET,
   payload: {

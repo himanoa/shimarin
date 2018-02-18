@@ -1,6 +1,7 @@
 {
     "extends": [
       "eslint:recommended",
+      "plugin:flowtype/recommended",
       "prettier",
       "prettier/flowtype",
       "prettier/react"
@@ -18,15 +19,16 @@
         "es6": true,
     },
     "plugins": [
+      "flowtype",
       "react",
-      "prettier"
+      "prettier",
+      "import"
     ],
     "rules": {
         "arrow-body-style": "error",
         "arrow-parens": "error",
         "arrow-spacing": "error",
         "generator-star-spacing": "error",
-        "no-duplicate-imports": "error",
         "no-useless-computed-key": "error",
         "no-useless-constructor": "error",
         "no-useless-rename": "error",
@@ -41,6 +43,7 @@
         "template-curly-spacing": "error",
         "prettier/prettier": "error",
         "react/jsx-uses-vars": "error",
-        "react/jsx-uses-react": "error"
+        "react/jsx-uses-react": "error",
+        "import/no-duplicates": "error"
     }
 }
