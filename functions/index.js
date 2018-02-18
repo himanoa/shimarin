@@ -55,6 +55,7 @@ const fetchShimarinForTwitter = () => new Promise((resolve, reject) => {
       access_token_key: process.env.accessToken,
       access_token_secret: process.env.accessTokenSecret,
     }
+    console.error(auth)
     const tw = new Twitter(auth);
     const searchParams = {
       q: 'しまりん OR 志摩リン OR しまリン',
