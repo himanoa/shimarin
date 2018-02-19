@@ -1,7 +1,7 @@
 // @flow
 import { TWEETS_FETCH_SUCCESS, TWEETS_FETCH_FAILED } from "../actions/tweet";
 import type { Tweet, Action } from "../actions/tweet";
-import { uniqBy } from "ramda";
+import uniqBy from "ramda/src/uniqBy";
 
 const isUniq = (t: Tweet): string => {
   if (t.retweeted_status == null) {
