@@ -55,7 +55,7 @@ const fetchShimarinForTwitter = () =>
       console.error(auth);
       const tw = new Twitter(auth);
       const searchParams = {
-        q: "しまりん OR 志摩リン OR しまリン",
+        q: "しまりん OR 志摩リン OR しまリン filter:images",
         locale: "ja",
         popular: "recent",
         count: 100,
