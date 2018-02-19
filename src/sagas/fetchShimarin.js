@@ -16,13 +16,12 @@ const minutes: number = 60000;
 function* _fetchShimarin(): IOEffect {
   while (true) {
     try {
-      console.dir("poe");
       const tweets = yield call(fetchShimarin);
       yield put({ type: TWEETS_FETCH_SUCCESS, payload: { tweets } });
     } catch (error) {
       yield put({ type: TWEETS_FETCH_FAILED, payload: { error } });
     } finally {
-      yield delay(15 * minutes);
+      yield delay(3 * minutes);
     }
   }
 }
