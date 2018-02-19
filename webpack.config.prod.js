@@ -18,14 +18,6 @@ module.exports = [
       path: __dirname + "/public",
       publicPath: "/"
     },
-    watchOptions: {
-      poll: true
-    },
-    devServer: {
-      contentBase: "public/",
-      historyApiFallback: true,
-      port: DEV_PORT
-    },
     module: {
       rules: [
         {
@@ -35,7 +27,6 @@ module.exports = [
         }
       ]
     },
-    devtool: process.env.NODE_ENV === "production" ? null : "inline-source-map",
     plugins: [
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify("production"),
@@ -43,7 +34,8 @@ module.exports = [
       }),
       new FlowWebpackPlugin(),
       new webpack.optimize.UglifyJsPlugin({
-        sourceMap: true
+        sourceMap: false,
+        parallel: true
       }),
       new CleanWebpackPlugin(["public"]),
       new HtmlWebpackPlugin({
