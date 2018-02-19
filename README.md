@@ -1,6 +1,6 @@
 # Shimarin
 
-http://s1mar.in 買っちった
+http://shimar.in 買っちった
 
 ## System Dependencies
 
@@ -18,10 +18,9 @@ http://s1mar.in 買っちった
 
 ## Deployment
 
-1. Run `yarn run build`
+1. Run `yarn webpack -p --config webpack.config.prod.js`
 2. Run `firebase use --add`
 3. Run `firebase deploy`
-4. Run
 
 ```
 cd functions
@@ -40,6 +39,8 @@ gcloud beta functions deploy shimarin --trigger-http --stage-bucket=shimarin_tmp
 - babel
 - bulma
 - prettier
+- redux-saga
+- ramda
 
 ## License
 
