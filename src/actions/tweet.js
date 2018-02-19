@@ -133,7 +133,7 @@ export type Tweet = {|
 export type Action = {|
   type: string,
   payload: {|
-    tweets: ?Array<Tweet>
+    tweets: Array<Tweet>
   |}
 |};
 

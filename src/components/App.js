@@ -7,6 +7,7 @@ import TweetList from "./TweetList";
 const App = () => (
   <div>
     <Header />
+    <TweetList />
     <Footer />
   </div>
 );

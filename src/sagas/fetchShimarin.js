@@ -2,18 +2,18 @@
 
 import { call, put, race, take } from "redux-saga/effects";
 import { delay } from "redux-saga";
-import type { IOEffect } from "redux-saga/effects";
+import type { Saga, Task, Effect } from "redux-saga";
+import type { Action, Tweet } from "../actions/tweet";
 import {
   POLL_START,
   TWEETS_FETCH_SUCCESS,
-  TWEETS_FETCH_FAILED,
-  Action
+  TWEETS_FETCH_FAILED
 } from "../actions/tweet";
 import { fetchShimarin } from "../api.js";
 
 const minutes: number = 60000;
 
-function* _fetchShimarin(): IOEffect {
+function* _fetchShimarin(): * {
   while (true) {
     try {
       const tweets = yield call(fetchShimarin);
@@ -26,7 +26,7 @@ function* _fetchShimarin(): IOEffect {
   }
 }
 
-function* fetchShimarinSaga(): IOEffect {
+function* fetchShimarinSaga(): Saga<void> {
   yield take(POLL_START);
   while (true) {
     yield race([call(_fetchShimarin)]);
