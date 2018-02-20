@@ -1,4 +1,9 @@
 {
   "presets": ["react", "env", 'flow'],
-  "plugins": ["transform-object-rest-spread", "ramda", "transform-runtime"]
+  "plugins": [["transform-object-rest-spread", {
+    "helpers": false,
+    "polyfill": true,
+    "regenerator": true,
+    "moduleNaem": "babel-runtime"
+  }], "ramda", "transform-runtime"]
 }
